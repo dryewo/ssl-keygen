@@ -39,6 +39,27 @@ You can use them to setup a reverse proxy server that terminates SSL.
 
 ### Set up nginx
 
+Put `cert.key` and `cert.crt` onto the machine running nginx and provide the following `nginx.conf` (replace `localhost:8080` with actual backend address and `8443` with actual SSL port):
+
+```
+events {
+}
+
+http {
+  server {
+    listen 8443;
+
+    ssl on;
+    ssl_certificate /ssl/cert.crt;
+    ssl_certificate_key /ssl/cert.key;
+
+    location / {
+      proxy_pass http://localhost:8080;
+    }
+  }
+}
+```
+
 ## License
 
 Copyright 2015 Zalando SE
