@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -o errexit -o nounset -o pipefail
+set -euo pipefail
+IFS=$'\t\n'
 
 # Usage:
 #   ./gen-cert.sh localhost
