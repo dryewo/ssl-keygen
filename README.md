@@ -55,6 +55,7 @@ http {
 
     location / {
       proxy_pass http://localhost:8080;
+      proxy_redirect default;
     }
   }
 }
